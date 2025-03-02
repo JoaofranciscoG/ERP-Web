@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="/modules/pagamento/pagamento.css" />
+  </head>
+  <body>
+    <div class="container">
+      <form action="">
+        <div class="row">
+          <div class="col">
+            <h3 class="title">Endereço de cobrança</h3>
+
+            <div class="inputBox">
+              <span>Nome completo :</span>
+              <input type="text" placeholder="João da Silva" />
+            </div>
+            <div class="inputBox">
+              <span>E-mail :</span>
+              <input type="email" placeholder="exemplo@exemplo.com" />
+            </div>
+            <div class="inputBox">
+              <span>Endereço :</span>
+              <input type="text" placeholder="Rua, Número - Bairro" />
+            </div>
+            <div class="inputBox">
+              <span>Cidade :</span>
+              <input type="text" placeholder="São Paulo" />
+            </div>
+
+            <div class="flex">
+              <div class="inputBox">
+                <span>Estado :</span>
+                <input type="text" placeholder="SP" />
+              </div>
+              <div class="inputBox">
+                <span>Código postal :</span>    
+                <input type="text" placeholder="12345-00" />
+              </div>
+            </div>
+          </div>
+
+          <div class="col">
+            <h3 class="title">pagamento</h3>
+
+            <div class="inputBox">
+              <span>cartões aceitos :</span>
+              <img src="/assets/images/card_img.png" alt="" />
+            </div>
+            <div class="inputBox">
+              <span>nome no cartão :</span>
+              <input type="text" placeholder="João da Silva" />
+            </div>
+            <div class="inputBox">
+              <span>número do cartão de crédito :</span>
+              <input type="number" placeholder="5196 4132 7284 3657" />
+            </div>
+            <div class="inputBox">
+              <span>mês de expiração :</span>
+              <input type="text" placeholder="Novembro" />
+            </div>
+
+            <div class="flex">
+              <div class="inputBox">
+                <span>ano de expiração :</span>
+                <input type="number" placeholder="2025" />
+              </div>
+              <div class="inputBox">
+                <span>CVV :</span>
+                <input type="text" placeholder="0123" />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <input type="submit" value="prosseguir para o checkout" class="submit-btn" />
+      </form>
+    </div>
+  </body>
+</html>
