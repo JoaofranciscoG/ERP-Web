@@ -33,7 +33,7 @@ document.querySelector('.sign-in-form').addEventListener('submit', function(even
       timer: 2000,
       showConfirmButton: false,
       willClose: () => {
-        window.location.href = "/modules/dashboard/dashboard.html";
+        window.location.href = "../dashboard/dashboard.html";
       }
     });
   }
