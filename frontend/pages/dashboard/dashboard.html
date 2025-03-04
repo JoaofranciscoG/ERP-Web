@@ -4,77 +4,14 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <link
-      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
-      rel="stylesheet"
-    />
-
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css"
-    />
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-
     <link rel="stylesheet" href="/frontend/pages/dashboard/dashboard.css" />
     <link rel="stylesheet" href="/frontend/assets/global/global.css" />
 
-    <title>Dashboard</title>
+    <title>ERP Fácil - Dashboard</title>
   </head>
-  <body>
+  <body>    
     <div class="container">
-      <aside>
-        <div class="top">
-          <div class="logo">
-            <img src="/frontend/assets/images/logo.png" />
-            <h2>ERP <span class="danger">Fácil</span></h2>
-          </div>
-
-          <div class="close" id="close-btn">
-            <span class="material-symbols-outlined">close</span>
-          </div>
-        </div>
-
-        <div class="sidebar">
-          <a href="#" class="sidebar-link active">
-            <span class="material-symbols-outlined">grid_view</span>
-            <h3>Painel</h3>
-          </a>
-          <a href="#" class="sidebar-link">
-            <span class="material-symbols-outlined">person</span>
-            <h3>Clientes</h3>
-          </a>
-          <a href="#" class="sidebar-link">
-            <span class="material-symbols-outlined">receipt_long</span>
-            <h3>Pedidos</h3>
-          </a>
-          <a href="#" class="sidebar-link">
-            <span class="material-symbols-outlined">insights</span>
-            <h3>Análise</h3>
-          </a>
-          <a href="#" class="sidebar-link">
-            <span class="material-symbols-outlined">mail_outline</span>
-            <h3>Mensagens</h3>
-            <span class="message-count">26</span>
-          </a>
-          <a href="#" class="sidebar-link">
-            <span class="material-symbols-outlined">inventory_2</span>
-            <h3>Produtos</h3>
-          </a>
-          <a href="#" class="sidebar-link">
-            <span class="material-symbols-outlined">description</span>
-            <h3>Relatórios</h3>
-          </a>
-          <a href="#" class="sidebar-link">
-            <span class="material-symbols-outlined">settings</span>
-            <h3>Configurações</h3>
-          </a>
-          <a href="#" class="sidebar-link">
-            <span class="material-symbols-outlined">logout</span>
-            <h3>Sair</h3>
-          </a>
-        </div>
-      </aside>
-
+      <div class="menu-lateral"></div>
       <main>
         <h1>Dashboard</h1>
 
@@ -126,7 +63,7 @@
             <div class="middle">
               <div class="left">
                 <h3>Renda total</h3>
-                <h1>R$10.864</h1>
+                <h1>R$9.019</h1>
               </div>
               <div class="progress">
                 <svg>
@@ -171,6 +108,7 @@
             <span class="material-symbols-outlined active">light_mode</span>
             <span class="material-symbols-outlined">dark_mode</span>
           </div>
+          
           <div class="profile">
             <div class="info">
               <p>Hey, <b>Daniel</b></p>
@@ -245,5 +183,6 @@
     <script src="/frontend/pages/dashboard/dashboard.js"></script>
     <script src="/frontend/pages/dashboard/auto/pedidos.js"></script>
     <script src="/frontend/pages/dashboard/auto/updates.js"></script>
+    <script src="/frontend/components/sidebar/sidebar.js"></script>
   </body>
 </html>

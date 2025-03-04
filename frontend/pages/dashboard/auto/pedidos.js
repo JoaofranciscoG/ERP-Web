@@ -17,7 +17,7 @@ const pedidos = [
 const tbody = document.getElementById("pedidos-tbody");
 const mostrarTudoBtn = document.querySelector(".recent-orders a");
 
-let mostrandoTodos = false;
+let mostrarTodos = false;
 
 function renderPedidos(limit) {
     tbody.innerHTML = ""; 
@@ -38,12 +38,12 @@ renderPedidos(6);
 
 mostrarTudoBtn.addEventListener("click", (e) => {
     e.preventDefault();
-    if (mostrandoTodos) {
+    if (mostrarTodos) {
         renderPedidos(6); 
-        mostrarTudoBtn.textContent = "Mostrar todos";
+        mostrarTudoBtn.textContent = "Mostrar tudo";
     } else {
         renderPedidos(pedidos.length); 
         mostrarTudoBtn.textContent = "Mostrar menos";
     }
-    mostrandoTodos = !mostrandoTodos;
+    mostrarTodos = !mostrarTodos;
 });

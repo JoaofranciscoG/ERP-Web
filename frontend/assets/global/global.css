@@ -1,11 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined");
+@import url("https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css");
 
 :root {
   --color-primary: #7380ec;
   --color-danger: #ff7782;
   --color-success: #41f1b6;
   --color-warning: #ffbb55;
-  --color-delivered: #333dc5;
+  --color-delivered: #625fff;
   --color-white: #fff;
   --color-info-light: #dce1eb;
   --color-light: #ebebeb;
@@ -43,4 +45,92 @@
 body,
 input {
   font-family: "Poppins", sans-serif;
+}
+
+.primary {
+  color: var(--color-primary);
+}
+
+.danger {
+  color: var(--color-danger);
+}
+
+.success {
+  color: var(--color-success);
+}
+
+.warning {
+  color: var(--color-warning);
+}
+
+.delivered {
+  color: var(--color-delivered);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  outline: 0;
+  appearance: none;
+  border: 0;
+  text-decoration: none;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 14px;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  font-family: Poppins, sans-serif;
+  font-size: 0.88rem;
+  background: var(--color-background);
+  user-select: none;
+  overflow-x: hidden;
+  color: var(--color-dark);
+}
+
+a {
+  color: var(--color-dark);
+}
+
+h1 {
+  font-weight: 800;
+  font-size: 1.8rem;
+  color: var(--color-dark)
+}
+
+h2 {
+  font-size: 1.4rem;
+}
+
+h3 {
+  margin-top: 12px;
+  font-size: 0.87rem;
+}
+
+h4 {
+  font-size: 0.8rem;
+}
+
+h5 {
+  font-size: 0.77rem;
+}
+
+small {
+  font-size: 0.75rem;
+}
+
+p {
+  color: var(--color-dark-variant);
+}
+
+b {
+  color: var(--color-dark);
+}
+
+main {
+  margin-top: 1.2rem;
 }
