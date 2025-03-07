@@ -1,6 +1,28 @@
 VerificarComponentes();
 
 document.addEventListener("DOMContentLoaded", () => {
+<<<<<<< HEAD
+=======
+  ConfigurarCliques();
+  ConfigurarResponsividade();
+});
+
+function ConfigurarResponsividade() {
+  const menuBtn = document.getElementById("menu-btn");
+  const sidebar = document.querySelector("aside");
+  const closeBtn = document.getElementById("close-btn");
+
+  menuBtn.addEventListener("click", () => {
+    sidebar.classList.toggle("show-sidebar");
+  });
+
+  closeBtn.addEventListener("click", () => {
+    sidebar.classList.remove("show-sidebar");
+  });
+}
+
+function ConfigurarCliques() {
+>>>>>>> d490712 (commit)
   const sidebarLinks = document.querySelectorAll(".sidebar-link");
   const activeLink = localStorage.getItem("activeSidebarLink");
 
@@ -15,11 +37,16 @@ document.addEventListener("DOMContentLoaded", () => {
   sidebarLinks.forEach((link) => {
     link.addEventListener("click", () => {
       sidebarLinks.forEach((link) => link.classList.remove("active"));
+<<<<<<< HEAD
       
+=======
+
+>>>>>>> d490712 (commit)
       link.classList.add("active");
       localStorage.setItem("activeSidebarLink", link.href);
     });
   });
+<<<<<<< HEAD
 
   const menuBtn  = document.getElementById("menu-btn");
   const sidebar  = document.querySelector("aside");
@@ -33,6 +60,27 @@ document.addEventListener("DOMContentLoaded", () => {
     sidebar.classList.remove("show-sidebar");
   });
 });
+=======
+}
+
+function ConfirmarLogout() {
+  Swal.fire({
+    title: "Tem certeza?",
+    text: "Você realmente deseja sair?",
+    icon: "warning",
+    showCancelButton: true,
+    confirmButtonColor: "#d33",
+    cancelButtonColor: "#3085d6",
+    confirmButtonText: "Sair",
+    cancelButtonText: "Cancelar",
+  }).then((result) => {
+    if (result.isConfirmed) {
+      localStorage.clear();
+      window.location.href = "/frontend/pages/login/login.html";
+    }
+  });
+}
+>>>>>>> d490712 (commit)
 
 function VerificarComponentes() {
   var asides = document.getElementsByClassName("menu-lateral");
@@ -43,6 +91,7 @@ function VerificarComponentes() {
 
 function CriarAside(asides) {
   for (const a of asides) {
+<<<<<<< HEAD
     var aside    = document.createElement("aside");
     var divTop   = document.createElement("div");
     var divLogo  = document.createElement("div");
@@ -52,6 +101,17 @@ function CriarAside(asides) {
     var sidebar  = document.createElement("div");
     
     aside.classList.add("sidebar");   
+=======
+    var aside = document.createElement("aside");
+    var divTop = document.createElement("div");
+    var divLogo = document.createElement("div");
+    var imgLogo = document.createElement("img");
+    var titulo = document.createElement("h2");
+    var divClose = document.createElement("div");
+    var sidebar = document.createElement("div");
+
+    aside.classList.add("sidebar");
+>>>>>>> d490712 (commit)
     divTop.classList.add("top");
     divLogo.classList.add("logo");
 
@@ -71,12 +131,33 @@ function CriarAside(asides) {
     sidebar.classList.add("sidebar");
 
     var links = [
+<<<<<<< HEAD
       { href: "/frontend/pages/dashboard/dashboard.html", icon: "grid_view", text: "Painel" },
       { href: "/frontend/pages/clientes/grid/grid.html", icon: "person", text: "Clientes" },
       { href: "#", icon: "receipt_long", text: "Pedidos" },
       { href: "#", icon: "insights", text: "Análise" },
       { href: "#", icon: "mail_outline", text: "Mensagens", count: 26 },
       { href: "/frontend/pages/produtos/produtos.html", icon: "inventory_2", text: "Produtos" },
+=======
+      {
+        href: "/frontend/pages/dashboard/dashboard.html",
+        icon: "grid_view",
+        text: "Painel",
+      },
+      {
+        href: "/frontend/pages/clientes/grid/grid.html",
+        icon: "person",
+        text: "Clientes",
+      },
+      { href: "#", icon: "receipt_long", text: "Pedidos" },
+      { href: "#", icon: "insights", text: "Análise" },
+      { href: "#", icon: "mail_outline", text: "Mensagens", count: 26 },
+      {
+        href: "/frontend/pages/produtos/produtos.html",
+        icon: "inventory_2",
+        text: "Produtos",
+      },
+>>>>>>> d490712 (commit)
       { href: "#", icon: "description", text: "Relatórios" },
       { href: "#", icon: "settings", text: "Configurações" },
       { href: "#", icon: "logout", text: "Sair" },
@@ -86,10 +167,17 @@ function CriarAside(asides) {
       var aTag = document.createElement("a");
       var icon = document.createElement("span");
       var h3 = document.createElement("h3");
+<<<<<<< HEAD
       
       aTag.href = link.href;
       aTag.classList.add("sidebar-link");
    
+=======
+
+      aTag.href = link.href;
+      aTag.classList.add("sidebar-link");
+
+>>>>>>> d490712 (commit)
       icon.classList.add("material-symbols-outlined");
       icon.innerText = link.icon;
 
@@ -105,6 +193,16 @@ function CriarAside(asides) {
         aTag.appendChild(spanCount);
       }
 
+<<<<<<< HEAD
+=======
+      if (link.text === "Sair") {
+        aTag.addEventListener("click", (event) => {
+          event.preventDefault(); 
+          ConfirmarLogout(); 
+        });
+      }
+
+>>>>>>> d490712 (commit)
       sidebar.appendChild(aTag);
     });
 
@@ -294,4 +392,8 @@ function AdicionarCSS() {
   document.head.appendChild(style);
 }
 
+<<<<<<< HEAD
 AdicionarCSS();
+=======
+AdicionarCSS();
+>>>>>>> d490712 (commit)
