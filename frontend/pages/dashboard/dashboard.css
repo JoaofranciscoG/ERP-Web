@@ -14,14 +14,6 @@ img {
   color: var(--color-info-dark);
 }
 
-.container {
-  display: grid;
-  width: 96%;
-  margin: 0 auto;
-  gap: 1.8rem;
-  grid-template-columns: 14rem auto 23rem;
-}
-
 main .date {
   display: inline-block;
   background: var(--color-white);
@@ -193,7 +185,7 @@ main .recent-orders a {
 }
 
 .right .top .theme-toggler {
-  background: var(--color-white);
+  background: none;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -280,7 +272,6 @@ main .recent-orders a {
 .right .sales-analytics .item .right {
   display: flex;
   justify-content: space-between;
-  align-items: center;
   margin: 0;
   width: 100%;
 }
@@ -332,6 +323,7 @@ main .recent-orders a {
   display: flex;
   align-items: center;
   justify-content: center;
+  cursor: pointer;
 }
 
 .right .sales-analytics .add-product:hover {
@@ -355,23 +347,6 @@ main .recent-orders a {
     grid-template-columns: 7rem auto 23rem;
   }
 
-  aside .logo h2 {
-    display: none;
-  }
-
-  aside .sidebar h3 {
-    display: none;
-  }
-
-  aside .sidebar a {
-    width: 5.6rem;
-  }
-
-  aside .sidebar a:last-child {
-    position: relative;
-    margin-top: 1.8rem;
-  }
-
   main .insights {
     grid-template-columns: 1fr;
     gap: 0;
@@ -385,8 +360,13 @@ main .recent-orders a {
     margin: 2rem 0 0 8.8rem;
   }
 
+  main .recent-orders h2 {
+    margin-left: 52px;
+  }
+
   main .recent-orders table {
-    width: 83vw;
+    width: 78vw;
+    margin-left: 52px;
   }
 
   main table body tr th:last-child,

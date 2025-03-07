@@ -72,7 +72,7 @@ function CriarAside(asides) {
 
     var links = [
       { href: "/frontend/pages/dashboard/dashboard.html", icon: "grid_view", text: "Painel" },
-      { href: "/frontend/pages/clientes/clientes.html", icon: "person", text: "Clientes" },
+      { href: "/frontend/pages/clientes/grid/grid.html", icon: "person", text: "Clientes" },
       { href: "#", icon: "receipt_long", text: "Pedidos" },
       { href: "#", icon: "insights", text: "Análise" },
       { href: "#", icon: "mail_outline", text: "Mensagens", count: 26 },
@@ -118,88 +118,9 @@ function AdicionarCSS() {
   var style = document.createElement("style");
   style.innerHTML = `
 
-  * {
-    margin: 0;
-    padding: 0;
-    outline: 0;
-    appearance: none;
-    border: 0;
-    text-decoration: none;
-    box-sizing: border-box;
-  }
-
-  html {
-    font-size: 14px;
-  }
-
-  body {
-    width: 100vw;
-    height: 100vh;
-    font-family: Poppins, sans-serif;
-    font-size: 0.88rem;
-    background: var(--color-background);
-    user-select: none;
-    overflow-x: hidden;
-    color: var(--color-dark);
-  }
-
-  a {
-    color: var(--color-dark);
-  }
-
-  img {
-    display: block;
-    width: 100%;
-  }
-
-  h1 {
-    font-weight: 800;
-    font-size: 1.8rem;
-  }
-
-  h2 {
-    font-size: 1.4rem;
-  }
-
-  h3 {
-    margin-top: 12px;
-    font-size: 0.87rem;
-  }
-
-  h4 {
-    font-size: 0.8rem;
-  }
-
-  h5 {
-    font-size: 0.77rem;
-  }
-
-  small {
-    font-size: 0.75rem;
-  }
-
-  .text-muted {
-    color: var(--color-info-dark);
-  }
-
-  p {
-    color: var(--color-dark-variant);
-  }
-
-  b {
-    color: var(--color-dark);
-  }
-
-  .container {
-    display: grid;
-    width: 96%;
-    margin: 0 auto;
-    gap: 1.8rem;
-    grid-template-columns: 14rem auto 23rem;
-  }
-
   aside {
-    height: 90vh;
+    height: 100vh;
+    position: fixed;
   }
 
   aside .top {
@@ -233,6 +154,7 @@ function AdicionarCSS() {
 
   aside h3 {
     font-weight: 500;
+    margin-bottom: 10px;
   }
 
   aside .sidebar a {
@@ -301,6 +223,10 @@ function AdicionarCSS() {
       grid-template-columns: 7rem auto 23rem;
     }
 
+    aside .logo {
+      margin-left: 25%
+    }
+
     aside .logo h2 {
       display: none;
     }
@@ -315,7 +241,7 @@ function AdicionarCSS() {
 
     aside .sidebar a:last-child {
       position: relative;
-      margin-top: 1.8rem;
+      margin-top: 180%;
     }
   }
 

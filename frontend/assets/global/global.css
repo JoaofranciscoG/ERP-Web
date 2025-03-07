@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined");
 @import url("https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css");
 
@@ -92,6 +92,14 @@ body {
   color: var(--color-dark);
 }
 
+.container {
+  display: grid;
+  width: 96%;
+  margin: 0 auto;
+  gap: 1.8rem;
+  grid-template-columns: 14rem auto 23rem;
+}
+
 a {
   color: var(--color-dark);
 }
@@ -99,7 +107,7 @@ a {
 h1 {
   font-weight: 800;
   font-size: 1.8rem;
-  color: var(--color-dark)
+  color: var(--color-dark);
 }
 
 h2 {
