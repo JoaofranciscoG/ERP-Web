@@ -1,6 +1,12 @@
 VerificarComponentes();
+AdicionarCSS();
 
 document.addEventListener("DOMContentLoaded", () => {
+  ConfigurarCliques();
+  ConfigurarResponsividade();
+});
+
+function ConfigurarCliques() {
   const sidebarLinks = document.querySelectorAll(".sidebar-link");
   const activeLink = localStorage.getItem("activeSidebarLink");
 
@@ -20,7 +26,9 @@ document.addEventListener("DOMContentLoaded", () => {
       localStorage.setItem("activeSidebarLink", link.href);
     });
   });
+}
 
+function ConfigurarResponsividade() {
   const menuBtn  = document.getElementById("menu-btn");
   const sidebar  = document.querySelector("aside");
   const closeBtn = document.getElementById("close-btn");
@@ -32,7 +40,37 @@ document.addEventListener("DOMContentLoaded", () => {
   closeBtn.addEventListener("click", () => {
     sidebar.classList.remove("show-sidebar");
   });
-});
+}
+
+function ConfirmarLogout() {
+  Swal.fire({
+    title: "Tem certeza?",
+    text: "Você realmente deseja sair?",
+    icon: "warning",
+    showCancelButton: true,
+    confirmButtonColor: "#d33",
+    cancelButtonColor: "#3085d6",
+    confirmButtonText: "Sair",
+    cancelButtonText: "Cancelar",
+  }).then((result) => {
+    if (result.isConfirmed) {
+      Swal.fire({
+        title: "Saindo...",
+        text: "Aguarde enquanto finalizamos sua sessão.",
+        allowOutsideClick: false,
+        allowEscapeKey: false,
+        didOpen: () => {
+          Swal.showLoading();
+        },
+      });
+
+      setTimeout(() => {
+        localStorage.clear();
+        window.location.href = "/frontend/pages/login/login.html";
+      }, 1500);
+    }
+  });
+}
 
 function VerificarComponentes() {
   var asides = document.getElementsByClassName("menu-lateral");
@@ -103,6 +141,13 @@ function CriarAside(asides) {
         spanCount.classList.add("message-count");
         spanCount.innerText = link.count;
         aTag.appendChild(spanCount);
+      }
+
+      if (link.text === "Sair") {
+        aTag.addEventListener("click", (event) => {
+          event.preventDefault();
+          ConfirmarLogout();
+        });
       }
 
       sidebar.appendChild(aTag);
@@ -293,5 +338,3 @@ function AdicionarCSS() {
 
   document.head.appendChild(style);
 }
-
-AdicionarCSS();

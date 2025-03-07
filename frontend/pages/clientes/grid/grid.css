@@ -25,9 +25,18 @@ main {
 .top-bar input {
   width: 100%;
   max-width: 500px;
-  padding: 10px;
+  padding: 7px 12px;
   border-radius: var(--border-radius-2);
   outline: none;
+  background-color: var(--color-white);
+  color: var(--color-dark);
+  font-size: 14px;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.top-bar input:focus {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 8px rgba(0, 123, 255, 0.2); 
 }
 
 .top-bar button {
@@ -51,7 +60,8 @@ main {
   box-shadow: var(--box-shadow);
   border-radius: var(--border-radius-2);
   overflow: hidden;
-  text-align: center; /
+  text-align: center; 
+  font-size: 12px;
 }
 
 .clientes-grid th,
@@ -72,7 +82,7 @@ main {
 
 .editar,
 .excluir {
-  padding: 8px 12px;
+  padding: 6px 8px;
   border: none;
   border-radius: var(--border-radius-2);
   cursor: pointer;
@@ -85,7 +95,7 @@ main {
 }
 
 .editar:hover {
-  background: darken(var(--color-success), 10%);
+  background: #31b18a;
 }
 
 .excluir {
@@ -94,7 +104,7 @@ main {
 }
 
 .excluir:hover {
-  background: darken(var(--color-danger), 10%);
+  background: #fd4a4a;
 }
 
 .pagination-container {
@@ -116,7 +126,7 @@ main {
 }
 
 .pagination-container button:hover {
-  background: darken(var(--color-primary), 10%);
+  background: #5c4fd6;;
 }
 
 #pagination {
@@ -133,6 +143,6 @@ main {
 }
 
 .pagina.ativa {
-  background: var(--color-primary);
+  background: #5c4fd6;
   color: var(--color-white);
 }

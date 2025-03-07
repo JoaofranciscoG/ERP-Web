@@ -1,0 +1,79 @@
+main {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.informacoes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.informacoes-cliente,
+.informacoes-contato {
+  flex: 1;
+  width: 78vw;
+}
+
+.informacoes-endereco {
+  width: 100%;
+}
+
+.informacoes-cliente,
+.informacoes-contato,
+.informacoes-endereco {
+  background-color: var(--color-white);
+  padding: var(--card-padding);
+  border-radius: var(--card-border-radius);
+  box-shadow: var(--box-shadow);
+}
+
+.informacoes-cliente h2,
+.informacoes-contato h2,
+.informacoes-endereco h2 {
+  margin-bottom: 1rem;
+  color: var(--color-primary);
+}
+
+.informacoes-endereco .campo {
+  display: inline-block;
+  width: 49%;
+  margin-left: 1rem;
+}
+
+.informacoes-endereco .campo-esquerda {
+  display: inline-block;
+  width: 49%;
+}
+
+.campo {
+  margin-bottom: 1.2rem;
+}
+
+label {
+  font-weight: 500;
+  display: block;
+  margin-bottom: 0.4rem;
+}
+
+input,
+select {
+  width: 100%;
+  padding: 0.8rem;
+  border-radius: var(--border-radius-1);
+  border: 0.1px solid #c0c0c0;
+  font-size: 1rem;
+}
+
+input[type="text"],
+input[type="email"] {
+  font-family: "Poppins", sans-serif;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+select:focus {
+  border-color: var(--color-primary);
+  outline: none;
+}

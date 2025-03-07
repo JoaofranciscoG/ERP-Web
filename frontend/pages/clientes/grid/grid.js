@@ -5,14 +5,14 @@ document.addEventListener("DOMContentLoaded", () => {
   const prevButton = document.getElementById("prev-page");
   const nextButton = document.getElementById("next-page");
 
-  const itensPorPagina = 9;
+  const itensPorPagina = 8;
   let paginaAtual = 1;
   const totalPaginas = Math.ceil(clientes.length / itensPorPagina);
 
   //Essa função gera clientes aleatoriamente com as informações passadas, aleatoriza tudo.
   //Substituir por clientes reais
 
-  function GerarClientes(qtd) { 
+  function GerarClientes(qtd) {
     return Array.from({ length: qtd }, (_, i) => ({
       codigo : (i + 1).toString().padStart(3, "0"),
       nome   : `Cliente ${i + 1}`,
@@ -39,8 +39,13 @@ document.addEventListener("DOMContentLoaded", () => {
         <td>${cliente.cpfcnpj}</td>
         <td>${cliente.status}</td>
         <td>
-          <button class="editar">Editar</button>
-          <button class="excluir">Excluir</button>
+          <button class="editar">
+            <span class="material-symbols-outlined">edit_square</span>
+          </button>
+
+          <button class="excluir">
+            <span class="material-symbols-outlined">delete</span>
+          </button>
         </td>
       `;
       tbody.appendChild(tr);
