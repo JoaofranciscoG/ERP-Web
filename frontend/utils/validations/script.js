@@ -1,3 +1,12 @@
+function ValidarCPFCNPJ(valor) {
+  valor = valor.replace(/\D/g, "");
+  return valor.length === 11
+    ? ValidarCPF(valor)
+    : valor.length === 14
+    ? ValidarCNPJ(valor)
+    : false;
+}
+
 function ValidarCPF(cpf) {
   cpf = cpf.replace(/\D/g, "");
   if (cpf.length !== 11 || /^(\d)\1{10}$/.test(cpf)) return false;
@@ -44,15 +53,6 @@ function ValidarCNPJ(cnpj) {
   }
   resultado = soma % 11 < 2 ? 0 : 11 - (soma % 11);
   return resultado === parseInt(digitos.charAt(1));
-}
-
-function ValidarCPFCNPJ(valor) {
-  valor = valor.replace(/\D/g, "");
-  return valor.length === 11
-    ? ValidarCPF(valor)
-    : valor.length === 14
-    ? ValidarCNPJ(valor)
-    : false;
 }
 
 function ExibirErro(input, tipo) {

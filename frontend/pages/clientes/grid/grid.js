@@ -5,12 +5,9 @@ document.addEventListener("DOMContentLoaded", () => {
   const prevButton = document.getElementById("prev-page");
   const nextButton = document.getElementById("next-page");
 
-  const itensPorPagina = 8;
+  const itensPorPagina = 9;
   let paginaAtual = 1;
   const totalPaginas = Math.ceil(clientes.length / itensPorPagina);
-
-  //Essa função gera clientes aleatoriamente com as informações passadas, aleatoriza tudo.
-  //Substituir por clientes reais
 
   function GerarClientes(qtd) {
     return Array.from({ length: qtd }, (_, i) => ({

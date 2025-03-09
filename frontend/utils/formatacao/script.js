@@ -13,9 +13,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
   AjustarTamanhoCampo();
 
-  const campoTelefone = document.getElementById("telefone");
+  const telefone = document.getElementById("telefone");
 
-  campoTelefone.addEventListener("input", function (e) {
+  telefone.addEventListener("input", function (e) {
     FormatarTelefone();
   });
 });

@@ -4,10 +4,11 @@
 
 :root {
   --color-primary: #7380ec;
+  --color-primary-hover: #554eb9;
   --color-danger: #ff7782;
   --color-success: #41f1b6;
   --color-warning: #ffbb55;
-  --color-delivered: #625fff;
+  --color-delivered: #6360ff;
   --color-white: #fff;
   --color-info-light: #dce1eb;
   --color-light: #ebebeb;
