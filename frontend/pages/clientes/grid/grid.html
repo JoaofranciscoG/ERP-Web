@@ -17,40 +17,33 @@
       <div class="menu-lateral"></div>
       <main>
         <h1>Clientes</h1>
+        <div class="top-bar">
+          <input type="text" id="search" placeholder="Pesquisar clientes..." />
+          <button id="cadastrar">Cadastrar</button>
+        </div>
 
-        <div id="tela-clientes" class="tela active">
-          <div class="top-bar">
-            <input
-              type="text"
-              id="search"
-              placeholder="Pesquisar clientes..."
-            />
-            <button id="cadastrar">Cadastrar</button>
-          </div>
+        <table class="clientes-grid">
+          <thead>
+            <tr>
+              <th>Código</th>
+              <th>Nome</th>
+              <th>Contato</th>
+              <th>CEP</th>
+              <th>Tipo</th>
+              <th>CPF / CNPJ</th>
+              <th>Status</th>
+              <th>Ações</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Clientes são adicionados dinamicamente -->
+          </tbody>
+        </table>
 
-          <table class="clientes-grid">
-            <thead>
-              <tr>
-                <th>Código</th>
-                <th>Nome</th>
-                <th>Contato</th>
-                <th>CEP</th>
-                <th>Tipo</th>
-                <th>CPF / CNPJ</th>
-                <th>Status</th>
-                <th>Ações</th>
-              </tr>
-            </thead>
-            <tbody>
-              <!-- Clientes são adicionados dinamicamente -->
-            </tbody>
-          </table>
-
-          <div class="pagination-container">
-            <button id="prev-page">Anterior</button>
-            <div id="pagination"></div>
-            <button id="next-page">Próximo</button>
-          </div>
+        <div class="pagination-container">
+          <button id="prev-page">Anterior</button>
+          <div id="pagination"></div>
+          <button id="next-page">Próximo</button>
         </div>
       </main>
     </div>

@@ -13,7 +13,7 @@ main {
 
 h1 {
   margin-bottom: 1rem;
-  color: var(--color-dark)
+  color: var(--color-dark);
 }
 
 .top-bar {
@@ -23,11 +23,17 @@ h1 {
 }
 
 .top-bar input {
-  flex: 1;
-  max-width: 300px;
+  width: 33%;
   padding: 10px;
   border: 1px solid #ccc;
-  border-radius: 5px;
+  border-radius: var(--border-radius-1);
+  outline: none;
+  transition: 0.3s;
+}
+
+.top-bar input:focus {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 5px rgba(0, 0, 255, 0.2);
 }
 
 .top-bar button {
@@ -35,10 +41,10 @@ h1 {
   background: var(--color-primary);
   color: white;
   border: none;
-  border-radius: 5px;
+  border-radius: var(--border-radius-1);
   cursor: pointer;
   transition: 0.3s;
-  margin-right: 2%
+  margin-right: 2%;
 }
 
 .top-bar button:hover {
@@ -49,12 +55,13 @@ h1 {
   width: 98%;
   border-collapse: collapse;
   background: white;
-  border-radius: 5px;
+  border-radius: var(--border-radius-2);
   overflow: hidden;
   box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-.clientes-grid th, .clientes-grid td {
+.clientes-grid th,
+.clientes-grid td {
   padding: 12px;
   text-align: left;
   border-bottom: 1px solid #ddd;
@@ -79,17 +86,19 @@ h1 {
   text-align: center;
 }
 
-.clientes-grid td span {
+.editar,
+.excluir {
+  padding: 4px;
+  border: none;
+  background: transparent;
+  color: var(--color-primary);
   cursor: pointer;
-  background-color: var(--color-white);
+  transition: 0.3s;
 }
 
-@media (max-width: 768px) {
-  .clientes-grid {
-    display: block;
-    overflow-x: auto;
-    white-space: nowrap;
-  }
+.editar:hover,
+.excluir:hover {
+  color: var(--color-primary-hover);
 }
 
 .pagination-container {
@@ -106,12 +115,12 @@ h1 {
   background: var(--color-primary);
   color: white;
   cursor: pointer;
-  border-radius: 3px;
+  border-radius: var(--border-radius-1);
   transition: 0.3s;
 }
 
 .pagination-container button:hover {
-  background: var(--color-primary-hover)
+  background: var(--color-primary-hover);
 }
 
 #pagination {

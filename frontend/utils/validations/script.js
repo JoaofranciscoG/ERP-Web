@@ -13,6 +13,7 @@ function ValidarCPF(cpf) {
 
   let soma = 0,
     resto;
+
   for (let i = 1; i <= 9; i++) soma += parseInt(cpf[i - 1]) * (11 - i);
   resto = (soma * 10) % 11;
   if (resto === 10 || resto === 11) resto = 0;
@@ -71,10 +72,18 @@ function ExibirErro(input, tipo) {
 document.getElementById("cpf-cnpj").addEventListener("blur", function () {
   const input = this;
   const valor = input.value.replace(/\D/g, "");
+  const tipoSelecionado = document.getElementById("tipo").value;
 
-  if (valor.length === 11 && !ValidarCPF(valor)) {
+  if (valor.length === 0) 
+    return;
+  else
+  if (tipoSelecionado === "fisico" && valor.length !== 11) {
     ExibirErro(input, "cpf");
-  } else if (valor.length === 14 && !ValidarCNPJ(valor)) {
+  } else if (tipoSelecionado === "juridico" && valor.length !== 14) {
+    ExibirErro(input, "cnpj");
+  } else if (tipoSelecionado === "fisico" && !ValidarCPF(valor)) {
+    ExibirErro(input, "cpf");
+  } else if (tipoSelecionado === "juridico" && !ValidarCNPJ(valor)) {
     ExibirErro(input, "cnpj");
   }
 });
