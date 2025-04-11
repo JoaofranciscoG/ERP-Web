@@ -11,13 +11,24 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function AtualizarTabela(pagina) {
     RenderizarClientes(clientes, tbody, pagina, itensPorPagina);
-    RenderizarPagina(paginationContainer, pagina, totalPaginas, AtualizarTabela);
+    RenderizarPagina(
+      paginationContainer,
+      pagina,
+      totalPaginas,
+      AtualizarTabela
+    );
 
     prevButton.disabled = pagina === 1;
     nextButton.disabled = pagina === totalPaginas;
   }
 
-  ConfigurarNavegacao(prevButton, nextButton, paginaAtual, totalPaginas, AtualizarTabela);
+  ConfigurarNavegacao(
+    prevButton,
+    nextButton,
+    paginaAtual,
+    totalPaginas,
+    AtualizarTabela
+  );
   AtualizarTabela(paginaAtual);
 
   AbrirTelaCadastro();
@@ -25,7 +36,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 function AbrirTelaCadastro() {
   document.getElementById("cadastrar").addEventListener("click", function () {
-    window.location.href = "/frontend/pages/clientes/cadastro/cadastro.html";
+    window.location.href = "../../pages/clientes/cadastro/cadastro.php";
   });
 }
 
@@ -36,13 +47,18 @@ function GerarClientes(qtd) {
     contato: `(11) 9${i % 10}${i % 10}${i % 10}${i % 10}-000${i % 10}`,
     cep: `0100${i % 10}-000`,
     tipo: i % 2 === 0 ? "Físico" : "Jurídico",
-    cpfcnpj: i % 2 === 0 ? `123.456.78${i % 10}-00` : `12.345.678/0001-${i % 10}9`,
+    cpfcnpj:
+      i % 2 === 0 ? `123.456.78${i % 10}-00` : `12.345.678/0001-${i % 10}9`,
     status: i % 3 === 0 ? "Inativo" : "Ativo",
   }));
 }
 
 function RenderizarClientes(clientes, tbody, paginaAtual, itensPorPagina) {
-  const clientesPagina = ObterClientesDaPagina(clientes, paginaAtual, itensPorPagina);
+  const clientesPagina = ObterClientesDaPagina(
+    clientes,
+    paginaAtual,
+    itensPorPagina
+  );
   tbody.innerHTML = "";
 
   clientesPagina.forEach((cliente) => {
@@ -74,7 +90,12 @@ function ObterClientesDaPagina(clientes, paginaAtual, itensPorPagina) {
   return clientes.slice(inicio, fim);
 }
 
-function RenderizarPagina(paginationContainer, paginaAtual, totalPaginas, AtualizarTabela) {
+function RenderizarPagina(
+  paginationContainer,
+  paginaAtual,
+  totalPaginas,
+  AtualizarTabela
+) {
   paginationContainer.innerHTML = "";
   for (let i = 1; i <= totalPaginas; i++) {
     const botaoPagina = document.createElement("button");
@@ -91,7 +112,13 @@ function RenderizarPagina(paginationContainer, paginaAtual, totalPaginas, Atuali
   }
 }
 
-function ConfigurarNavegacao(prevButton, nextButton, paginaAtual, totalPaginas, AtualizarTabela) {
+function ConfigurarNavegacao(
+  prevButton,
+  nextButton,
+  paginaAtual,
+  totalPaginas,
+  AtualizarTabela
+) {
   prevButton.addEventListener("click", () => {
     if (paginaAtual > 1) {
       paginaAtual--;

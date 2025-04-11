@@ -1,5 +1,5 @@
-const ITENS_POR_PAGINA = 8;
-let produtos = GerarProdutos(20); 
+const ITENS_POR_PAGINA = 5;
+let produtos = GerarProdutos(25);
 let paginaAtual = 1;
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -12,11 +12,15 @@ function GerarProdutos(qtd) {
     nome: `Produto ${i + 1}`,
     descricao: `Descrição do Produto ${i + 1}`,
     preco: (Math.random() * 100).toFixed(2),
-    categoria: i % 3 === 0 ? "Eletrônicos" : i % 3 === 1 ? "Roupas" : "Alimentos",
+    categoria:
+      i % 3 === 0 ? "Eletrônicos" : i % 3 === 1 ? "Roupas" : "Alimentos",
     quantidade: Math.floor(Math.random() * 100),
-    estoque: i % 3 === 0 ? "Indisponível" : "Disponível",
+    estoque: i % 3 === 0 ? "Indiasponível" : "Disponível",
     unidade: i % 3 === 0 ? "UN" : "CX",
-    imagem: i % 3 === 0 ? "/frontend/assets/images/coca-cola.webp" : "/frontend/assets/images/pao.png",
+    imagem:
+      i % 3 === 0
+        ? "/frontend/assets/images/coca-cola.webp"
+        : "/frontend/assets/images/pao.png",
   }));
 }
 
@@ -84,9 +88,13 @@ function AtualizarPaginacao() {
   const totalPaginas = Math.ceil(produtos.length / ITENS_POR_PAGINA);
   const paginacaoContainer = document.getElementById("pagination");
   paginacaoContainer.innerHTML = `
-    <button id="prev-page" class="pagination-btn" ${paginaAtual === 1 ? "disabled" : ""}>Anterior</button>
+    <button id="prev-page" class="pagination-btn" ${
+      paginaAtual === 1 ? "disabled" : ""
+    }>Anterior</button>
     <div id="page-numbers"></div>
-    <button id="next-page" class="pagination-btn" ${paginaAtual === totalPaginas ? "disabled" : ""}>Próximo</button>`;
+    <button id="next-page" class="pagination-btn" ${
+      paginaAtual === totalPaginas ? "disabled" : ""
+    }>Próximo</button>`;
 
   const pageNumbersContainer = document.getElementById("page-numbers");
   for (let i = 1; i <= totalPaginas; i++) {

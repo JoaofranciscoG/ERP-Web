@@ -4,8 +4,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <link rel="stylesheet" href="/frontend/assets/global/global.css" />
-    <link rel="stylesheet" href="./cadastro.css" />
+    <link rel="stylesheet" href="../../assets/global/global.css">
+    <link rel="stylesheet" href="cadastro.css" />
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css"/>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
@@ -23,7 +23,8 @@
             <h2>Informações Pessoais</h2>
             <div class="campo">
               <label for="codigo">Código</label>
-              <input type="text" id="codigo" name="codigo" />  <!-- Passar read only -->
+              <input type="text" id="codigo" name="codigo" />
+              <!-- Passar read only -->
             </div>
             <div class="campo">
               <label for="nome">Nome</label>
@@ -77,10 +78,10 @@
       </main>
     </div>
 
-    <script src="/frontend/assets/global/global.js"></script>
-    <script src="/frontend/components/sidebar/sidebar.js"></script>
+    <script src="../../assets/global/global.js"></script>
+    <script type="module" src="../../components/sidebar/sidebar.js"></script>
     <script src="./cadastro.js"></script>
-    <script src="/frontend/utils/formatacao/script.js"></script>
-    <script src="/frontend/utils/validations/script.js"></script>
+    <script src="../../utils/formatacao/script.js"></script>
+    <script src="../../utils/validations/script.js"></script>
   </body>
 </html>

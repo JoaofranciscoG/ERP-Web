@@ -3,13 +3,12 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="/frontend/assets/global/global.css" />
-    <link rel="stylesheet" href="./grid.css" />
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css"
-    />
+    <link rel="stylesheet" href="../../../assets/global/global.css">
+    <link rel="stylesheet" href="grid.css" />
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css"/>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    
     <title>ERP Fácil - Clientes</title>
   </head>
   <body>
@@ -48,8 +47,8 @@
       </main>
     </div>
 
-    <script src="/frontend/assets/global/global.js"></script>
-    <script src="/frontend/components/sidebar/sidebar.js"></script>
-    <script src="./grid.js"></script>
+    <script src="../../assets/global/global.js"></script>
+    <script type="module" src="../../../components/sidebar/sidebar.js"></script>
+    <script src="grid.js"></script>
   </body>
 </html>

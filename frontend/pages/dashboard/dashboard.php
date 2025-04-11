@@ -4,15 +4,15 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <link rel="stylesheet" href="/frontend/pages/dashboard/dashboard.css" />
-    <link rel="stylesheet" href="/frontend/assets/global/global.css" />
-      
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>  
+    <link rel="stylesheet" href="../../assets/global/global.css">
+    <link rel="stylesheet" href="dashboard.css"/>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css"/>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <title>ERP Fácil - Dashboard</title>
   </head>
-  <body>    
+  <body>
     <div class="container">
       <div class="menu-lateral"></div>
       <main>
@@ -111,14 +111,14 @@
             <span class="material-symbols-outlined active">light_mode</span>
             <span class="material-symbols-outlined">dark_mode</span>
           </div>
-          
+
           <div class="profile">
             <div class="info">
               <p>Hey, <b>Daniel</b></p>
               <small class="text-muted">Admin</small>
             </div>
             <div class="profile-photo">
-              <img src="/frontend/assets/images/profile-1.jpg" />
+              <img src="../../assets/images/profile-1.jpg" />
             </div>
           </div>
         </div>
@@ -183,10 +183,10 @@
       </div>
     </div>
 
-    <script src="/frontend/assets/global/global.js"></script>
-    <script src="/frontend/components/sidebar/sidebar.js"></script>
-    <script src="/frontend/pages/dashboard/dashboard.js"></script>
-    <script src="/frontend/pages/dashboard/auto/pedidos.js"></script>
-    <script src="/frontend/pages/dashboard/auto/updates.js"></script>
+    <script type="module" src="../../components/sidebar/sidebar.js"></script>
+    <script src="../../assets/global/global.js"></script>
+    <script src="dashboard.js"></script>
+    <script src="../../pages/dashboard/auto/pedidos.js"></script>
+    <script src="../../pages/dashboard/auto/updates.js"></script>
   </body>
 </html>

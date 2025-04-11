@@ -4,8 +4,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <link rel="stylesheet" href="/frontend/assets/global/global.css" />
-    <link rel="stylesheet" href="./produtos.css" />
+    <link rel="stylesheet" href="../../assets/global/global.css">
+    <link rel="stylesheet" href="produtos.css" />
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css"/>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
@@ -18,7 +18,7 @@
       <main>
         <h1>Produtos</h1>
         <div class="top-bar">
-          <input type="text" id="search" placeholder="Pesquisar clientes..." />
+          <input type="text" id="search" placeholder="Pesquisar produtos..." />
           <button id="cadastrar">Cadastrar</button>
         </div>
 
@@ -35,7 +35,7 @@
                   <th>Categoria</th>
                   <th>Estoque</th>
                   <th>Unidade</th>
-                  <th>Ações</th>
+                  <th id="acoes">Ações</th>
                 </tr>
               </thead>
               <tbody id="tabela-corpo">
@@ -45,9 +45,13 @@
                 <tr>
                   <td colspan="9">
                     <div id="pagination" class="pagination-container">
-                      <button id="prev-page" class="pagination-btn">Anterior</button>
-                        <!-- paginas geradas dinamicamente -->
-                      <button id="next-page" class="pagination-btn">Próximo</button>
+                      <button id="prev-page" class="pagination-btn">
+                        Anterior
+                      </button>
+                      <!-- paginas geradas dinamicamente -->
+                      <button id="next-page" class="pagination-btn">
+                        Próximo
+                      </button>
                     </div>
                   </td>
                 </tr>
@@ -57,7 +61,12 @@
 
           <div class="produto-detalhes">
             <h2>Detalhes do Produto</h2>
-            <img id="produto-imagem" src="" alt="Imagem do Produto" class="imagem-detalhe"/>
+            <img
+              id="produto-imagem"
+              src=""
+              alt="Imagem do Produto"
+              class="imagem-detalhe"
+            />
             <div id="produto-info">
               <!--  -->
             </div>
@@ -67,7 +76,7 @@
     </div>
 
     <script src="/frontend/assets/global/global.js"></script>
-    <script src="/frontend/components/sidebar/sidebar.js"></script>
+    <script type="module" src="../../components/sidebar/sidebar.js"></script>
     <script src="./produtos.js"></script>
   </body>
 </html>

@@ -496,7 +496,7 @@ main .recent-orders a {
     cursor: pointer;
     border-radius: var(--border-radius-1);
   }
-  
+
   .right .top .theme-toggler span {
     font-size: 1.2rem;
     width: 50%;
@@ -505,7 +505,7 @@ main .recent-orders a {
     align-items: center;
     justify-content: center;
   }
-  
+
   .right .top .theme-toggler span.active {
     background: var(--color-primary);
     color: var(--color-white);
@@ -540,4 +540,3 @@ main .recent-orders a {
     left: 0;
   }
 }
-
