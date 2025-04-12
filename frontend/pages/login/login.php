@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="pt-br">
   <head>
@@ -9,7 +10,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
     
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>  
-    <script src="https://kit.fontawesome.com/64d58efce2.js" crossorigin="anonymous"></script>
+    <!--<script src="https://kit.fontawesome.com/64d58efce2.js" crossorigin="anonymous"></script>-->
 
     <title>Formulário de Login e Cadastro</title>
   </head>
@@ -17,27 +18,27 @@
     <div class="container">
       <div class="forms-container">
         <div class="signin-signup">
-          <form action="#" class="sign-in-form">
-            <h2 class="title">Entrar</h2>
-                        
-            <div class="input-field">
-              <i class="fas fa-lock"></i>
-              <input type="password" placeholder="Empresa" />
-            </div>
+        <form action="../../../backend/models/login.php" method="post" class="sign-in-form">
+          <h2 class="title">Entrar</h2> 
 
-            <div class="input-field">
-              <i class="fas fa-user"></i>
-              <input type="Email" placeholder="Email" />
-            </div>
+          <div class="input-field">
+            <i class="fas fa-building"></i>
+            <input type="text" name="codigo_empresa" placeholder="Empresa" required />
+          </div>
 
-            <div class="input-field">
-              <i class="fas fa-lock"></i>
-              <input type="password" placeholder="Senha" />
-            </div>
+          <div class="input-field">
+            <i class="fas fa-user"></i>
+            <input type="email" name="email" placeholder="Email" required />
+          </div>
 
-            <input type="submit" value="Entrar" class="btn solid" />
-          </form>
+          <div class="input-field">
+            <i class="fas fa-lock"></i>
+            <input type="password" name="senha" placeholder="Senha" required />
+          </div>
 
+          <input type="submit" value="Entrar" class="btn solid" />
+        </form>
+        
           <form action="#" class="sign-up-form">
             <h1 style="text-align: center;">Desenvolvido por: <br> Kaléu K. de Paula e João F. Garcia</h1>
             <h3>teste</h3>
