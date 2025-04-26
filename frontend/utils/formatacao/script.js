@@ -38,7 +38,7 @@ function FormatarCPFCNPJ(valor, maxLength) {
 }
 
 function AjustarTamanhoCampo() {
-  const campoCPFCNPJ = document.getElementById("cpf-cnpj");
+  const campoCPFCNPJ = document.getElementById("cpf_cnpj");
   const tipo = document.getElementById("tipo");
 
   campoCPFCNPJ.maxLength = tipo.value === "fisico" ? 14 : 18;

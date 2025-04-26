@@ -1,36 +1,55 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const clientes = GerarClientes(30);
   const tbody = document.querySelector(".clientes-grid tbody");
   const paginationContainer = document.getElementById("pagination");
   const prevButton = document.getElementById("prev-page");
   const nextButton = document.getElementById("next-page");
+  const searchInput = document.getElementById("search");
 
+  let clientes = [];
   let paginaAtual = 1;
   const itensPorPagina = 9;
-  const totalPaginas = Math.ceil(clientes.length / itensPorPagina);
+
+  // Função para buscar os dados reais
+  function CarregarClientes() {
+    fetch('../../../backend/php/consultar_clientes.php')
+      .then(response => response.json())
+      .then(data => {
+        clientes = data;
+        AtualizarTabela(paginaAtual);
+      })
+      .catch(erro => console.error("Erro ao buscar clientes:", erro));
+  }
 
   function AtualizarTabela(pagina) {
-    RenderizarClientes(clientes, tbody, pagina, itensPorPagina);
-    RenderizarPagina(
-      paginationContainer,
-      pagina,
-      totalPaginas,
-      AtualizarTabela
+    const termo = searchInput.value.toLowerCase();
+    const clientesFiltrados = clientes.filter(c =>
+      c.nome.toLowerCase().includes(termo) ||
+      c.codigo.toString().includes(termo) ||
+      c.cpf_cnpj.toLowerCase().includes(termo)
     );
+
+    const totalPaginas = Math.ceil(clientesFiltrados.length / itensPorPagina);
+    RenderizarClientes(clientesFiltrados, tbody, pagina, itensPorPagina);
+    RenderizarPagina(paginationContainer, pagina, totalPaginas, AtualizarTabela);
 
     prevButton.disabled = pagina === 1;
     nextButton.disabled = pagina === totalPaginas;
   }
 
-  ConfigurarNavegacao(
-    prevButton,
-    nextButton,
-    paginaAtual,
-    totalPaginas,
-    AtualizarTabela
-  );
-  AtualizarTabela(paginaAtual);
+  searchInput.addEventListener("input", () => {
+    paginaAtual = 1;
+    AtualizarTabela(paginaAtual);
+  });
 
+  ConfigurarNavegacao(prevButton, nextButton, () => {
+    paginaAtual--;
+    AtualizarTabela(paginaAtual);
+  }, () => {
+    paginaAtual++;
+    AtualizarTabela(paginaAtual);
+  });
+
+  CarregarClientes();
   AbrirTelaCadastro();
 });
 
@@ -40,25 +59,8 @@ function AbrirTelaCadastro() {
   });
 }
 
-function GerarClientes(qtd) {
-  return Array.from({ length: qtd }, (_, i) => ({
-    codigo: (i + 1).toString().padStart(3, "0"),
-    nome: `Cliente ${i + 1}`,
-    contato: `(11) 9${i % 10}${i % 10}${i % 10}${i % 10}-000${i % 10}`,
-    cep: `0100${i % 10}-000`,
-    tipo: i % 2 === 0 ? "Físico" : "Jurídico",
-    cpfcnpj:
-      i % 2 === 0 ? `123.456.78${i % 10}-00` : `12.345.678/0001-${i % 10}9`,
-    status: i % 3 === 0 ? "Inativo" : "Ativo",
-  }));
-}
-
 function RenderizarClientes(clientes, tbody, paginaAtual, itensPorPagina) {
-  const clientesPagina = ObterClientesDaPagina(
-    clientes,
-    paginaAtual,
-    itensPorPagina
-  );
+  const clientesPagina = ObterClientesDaPagina(clientes, paginaAtual, itensPorPagina);
   tbody.innerHTML = "";
 
   clientesPagina.forEach((cliente) => {
@@ -69,13 +71,13 @@ function RenderizarClientes(clientes, tbody, paginaAtual, itensPorPagina) {
       <td>${cliente.contato}</td>
       <td>${cliente.cep}</td>
       <td>${cliente.tipo}</td>
-      <td>${cliente.cpfcnpj}</td>
+      <td>${cliente.cpf_cnpj}</td>
       <td>${cliente.status}</td>
       <td>
-        <button class="editar">
+        <button class="editar" onclick="editarCliente(${cliente.codigo})">
           <span class="material-symbols-outlined">edit_square</span>
         </button>
-        <button class="excluir">
+        <button class="excluir" onclick="excluirCliente(${cliente.codigo})">
           <span class="material-symbols-outlined">delete</span>
         </button>
       </td>
@@ -86,23 +88,17 @@ function RenderizarClientes(clientes, tbody, paginaAtual, itensPorPagina) {
 
 function ObterClientesDaPagina(clientes, paginaAtual, itensPorPagina) {
   const inicio = (paginaAtual - 1) * itensPorPagina;
-  const fim = inicio + itensPorPagina;
-  return clientes.slice(inicio, fim);
+  return clientes.slice(inicio, inicio + itensPorPagina);
 }
 
-function RenderizarPagina(
-  paginationContainer,
-  paginaAtual,
-  totalPaginas,
-  AtualizarTabela
-) {
+function RenderizarPagina(paginationContainer, paginaAtual, totalPaginas, AtualizarTabela) {
   paginationContainer.innerHTML = "";
   for (let i = 1; i <= totalPaginas; i++) {
     const botaoPagina = document.createElement("button");
     botaoPagina.textContent = i;
     botaoPagina.classList.add("pagina");
-
     if (i === paginaAtual) botaoPagina.classList.add("ativa");
+
     botaoPagina.addEventListener("click", () => {
       paginaAtual = i;
       AtualizarTabela(paginaAtual);
@@ -112,24 +108,26 @@ function RenderizarPagina(
   }
 }
 
-function ConfigurarNavegacao(
-  prevButton,
-  nextButton,
-  paginaAtual,
-  totalPaginas,
-  AtualizarTabela
-) {
-  prevButton.addEventListener("click", () => {
-    if (paginaAtual > 1) {
-      paginaAtual--;
-      AtualizarTabela(paginaAtual);
-    }
-  });
+function ConfigurarNavegacao(prevButton, nextButton, onPrev, onNext) {
+  prevButton.addEventListener("click", onPrev);
+  nextButton.addEventListener("click", onNext);
+}
 
-  nextButton.addEventListener("click", () => {
-    if (paginaAtual < totalPaginas) {
-      paginaAtual++;
-      AtualizarTabela(paginaAtual);
+// Exemplo de funções para editar/excluir (já chamadas nos botões):
+function editarCliente(id) {
+  window.location.href = `../cadastro/caadastro_cliente.php?codigo=${id}`;
+}
+
+function excluirCliente(id) {
+  Swal.fire({
+    title: 'Deseja realmente excluir?',
+    icon: 'warning',
+    showCancelButton: true,
+    confirmButtonText: 'Sim, excluir',
+    cancelButtonText: 'Cancelar'
+  }).then((result) => {
+    if (result.isConfirmed) {
+      window.location.href = `../../../../../backend/models/clientes/excluir_cliente.php?codigo=${id}`;
     }
   });
 }

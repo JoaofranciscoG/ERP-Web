@@ -3,12 +3,12 @@
     private $connection;
     private $infos_string;
 
-    public function __construct() {
+    public function __construct($database) {
         $server = 'localhost';
         $port = '5432';
         $user = 'postgres';
         $password = 'domtec@10';
-        $this->infos_string = "host=$server port=$port dbname=postgres user=$user password=$password";
+        $this->infos_string = "host=$server port=$port dbname=$database user=$user password=$password";
     }
 
     public function AbrirConexao() {

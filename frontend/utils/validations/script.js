@@ -20,8 +20,10 @@ function ValidarCPF(cpf) {
   if (resto !== parseInt(cpf[9])) return false;
 
   soma = 0;
+
   for (let i = 1; i <= 10; i++) soma += parseInt(cpf[i - 1]) * (12 - i);
-  resto = (soma * 10) % 11;
+    resto = (soma * 10) % 11;
+
   if (resto === 10 || resto === 11) resto = 0;
   return resto === parseInt(cpf[10]);
 }
@@ -34,7 +36,8 @@ function ValidarCNPJ(cnpj) {
   let numeros = cnpj.substring(0, tamanho);
   let digitos = cnpj.substring(tamanho);
   let soma = 0,
-    pos = tamanho - 7;
+  
+  pos = tamanho - 7;
 
   for (let i = tamanho; i >= 1; i--) {
     soma += numeros.charAt(tamanho - i) * pos--;
@@ -69,7 +72,7 @@ function ExibirErro(input, tipo) {
   });
 }
 
-document.getElementById("cpf-cnpj").addEventListener("blur", function () {
+document.getElementById("cpf_cnpj").addEventListener("blur", function () {
   const input = this;
   const valor = input.value.replace(/\D/g, "");
   const tipoSelecionado = document.getElementById("tipo").value;
@@ -77,13 +80,13 @@ document.getElementById("cpf-cnpj").addEventListener("blur", function () {
   if (valor.length === 0) 
     return;
   else
-  if (tipoSelecionado === "fisico" && valor.length !== 11) {
+  if (tipoSelecionado === "F" && valor.length !== 11) {
     ExibirErro(input, "cpf");
-  } else if (tipoSelecionado === "juridico" && valor.length !== 14) {
+  } else if (tipoSelecionado === "J" && valor.length !== 14) {
     ExibirErro(input, "cnpj");
-  } else if (tipoSelecionado === "fisico" && !ValidarCPF(valor)) {
+  } else if (tipoSelecionado === "F" && !ValidarCPF(valor)) {
     ExibirErro(input, "cpf");
-  } else if (tipoSelecionado === "juridico" && !ValidarCNPJ(valor)) {
+  } else if (tipoSelecionado === "J" && !ValidarCNPJ(valor)) {
     ExibirErro(input, "cnpj");
   }
 });
